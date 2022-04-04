@@ -9,5 +9,14 @@ export class User {
     name: string;
 
     @Column()
-    role: string
+    role: string;
+
+    @Column()
+    password!: string; 
+    
+    @Column() 
+    email!: string;
+
+    @Column() 
+    lastLoginAt : Date | null; 
 }

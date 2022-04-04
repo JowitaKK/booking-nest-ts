@@ -1,6 +1,5 @@
 
 import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post} from "@nestjs/common";
-import { identity } from "rxjs";
 import { CreateUserDto } from "./dtos/createUser.dto";
 import { EditUsertDto } from "./dtos/editUser.dto";
 import { UsersService } from './users.service';
