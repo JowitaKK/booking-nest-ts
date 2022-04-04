@@ -26,14 +26,14 @@ addUser(@Body() body: CreateUserDto) {
     return this.usersService.add( body.name, body.password)
 }
 
-//localhost:3000/products/1 DELETE
+//localhost:3000/users/1 DELETE
 @Delete('/:id')
 @HttpCode(204)
 removeUser(@Param('id') id: string) {
     this.usersService.remove(+id)
 }
 
-//localhost:3000/products/1 PATCH (editing parts of entieties other way use PUT)
+//localhost:3000/users/1 PATCH (editing parts of entieties other way use PUT)
 @Patch('/:id')
 editUser(@Body() body: EditUsertDto, @Param('id') id: string) {
     return this.usersService.edit(+id, body.role)

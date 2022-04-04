@@ -1,4 +1,4 @@
-import { Injectable, HttpException, HttpStatus, UnauthorizeExeption } drom ' @nestjs/common';
+import { Injectable, HttpException, HttpStatus, UnauthorizedException } from '@nestjs/common';
 import { JwtService  } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -53,7 +53,7 @@ export class AuthHelper {
       const user: User = await this.validateUser(decoded);
 
       if(!user) {
-          throw new UnauthorizeExeption();
+          throw new UnauthorizedException();
       }
       return true;
   }
