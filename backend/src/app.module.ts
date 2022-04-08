@@ -13,7 +13,7 @@ import { BarbersModule } from './barbers/barbers.module';
   imports: [
     UsersModule,
     // ProductsModule,
-  
+
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -23,11 +23,10 @@ import { BarbersModule } from './barbers/barbers.module';
       database: 'booking',
       synchronize: true,
       //everything whats contains .entity, thats the elements of db (remember entieties.js)
-      entities: ['**/*.entity.js']
+      entities: ['**/*.entity.js'],
     }),
     AuthModule,
     BarbersModule,
-
   ],
   controllers: [AppController, AuthController, BarbersController],
   providers: [AppService, BarbersService],

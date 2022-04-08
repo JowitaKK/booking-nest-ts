@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "composite": true
+    },
+    "include": [],
+    "references": [
+        {"path": "./backend/tsconfig.json"},
+        {"path": "./front/tsconfig.json"}
+    ]
+  }
+  
