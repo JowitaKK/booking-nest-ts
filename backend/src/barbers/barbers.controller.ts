@@ -5,14 +5,9 @@ import {
     Delete,
     Get,
     HttpCode,
-    HttpException,
-    HttpStatus,
     Param,
-    ParseIntPipe,
     Patch,
     Post,
-    Query,
-    UseGuards,
   } from '@nestjs/common';
 import { BarbersService } from './barbers.service';
 import { CreateBarberDto } from './dtos/createBarber.dto';
