@@ -8,11 +8,11 @@ export class UsersService {
     constructor(@InjectRepository(User) private repo: Repository<User>){}
     
     getAll() {
-        //return products
+        //return users
         return this.repo.find();
     }
 
-    getById( id: number) {
+    getById( id: number ) {
         return this.repo.findOneBy({id});
     }
 

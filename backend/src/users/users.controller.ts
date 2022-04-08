@@ -6,7 +6,7 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-    constructor(private usersService: UsersService ) {}
+    constructor(private usersService: UsersService) {}
 
 //localhost:3000/users
 @Get() 

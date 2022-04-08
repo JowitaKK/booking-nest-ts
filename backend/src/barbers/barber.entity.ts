@@ -1,25 +1,16 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-export class User {
+@Entity() 
+export class Barber {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     name: string;
 
-    @Column()
-    role: string;
-
-    @Column()
-    password!: string; 
-    
     @Column() 
-    email!: string;
+    description: string;
 
     @Column() 
-    lastLoginAt : Date | null; 
+    image: string;
 }
-
-
-
