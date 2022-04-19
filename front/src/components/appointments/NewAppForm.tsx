@@ -1,13 +1,10 @@
 import { Form, Formik } from 'formik';
 
 import { useCreateAppointmentMutation, useGetBarberServicesQuery, useGetBarbersQuery } from '../../queries';
-import { Button } from '../common/Button';
-import DatetimeInput from '../common/DatetimeInput';
-import Dropdown, { Option } from '../common/Dropdown';
+import { Button, InputLabel, Select, MenuItem, TextField } from '@mui/material';
+// import DatetimeInput from '../common/DatetimeInput';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import TextInput from '../common/TextInput';
-
 
 interface NewAppointmentFormValues {
   barberId: string | null;
@@ -17,7 +14,7 @@ interface NewAppointmentFormValues {
   clientPhoneNumber: string;
 }
 
-export default function NewAppointmentForm() {
+export const NewAppointmentForm =()=> {
   const barbersQuery = useGetBarbersQuery();
   const barberServicesQuery = useGetBarberServicesQuery();
   const createAppointmentMutation = useCreateAppointmentMutation();
@@ -56,41 +53,42 @@ export default function NewAppointmentForm() {
       clientPhoneNumber: values.clientPhoneNumber,
     });
 
-    history.push('/appointments');
+    navigate('/appointments');
   };
 
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
       <Form>
-        <InputContainer>
-          <Dropdown name="barberId" label="Barber">
-            <Option disabled selected></Option>
+        <InputLabel>
+          <Select name="barberId" label="Barber">
+
             {barbersQuery.data.map((barber) => (
-              <Option value={barber.id}>{barber.name}</Option>
+              <MenuItem value={barber.id}>{barber.name}</MenuItem>
             ))}
-          </Dropdown>
-        </InputContainer>
-        <InputContainer>
-          <Dropdown name="barberServiceId" label="Service">
-            <Option disabled selected></Option>
+          </Select>
+        </InputLabel>
+        <InputLabel>
+          <Select name="barberServiceId" label="Service">
+            
             {barberServicesQuery.data.map((barberService) => (
-              <Option value={barberService.id}>{barberService.name}</Option>
+              <MenuItem value={barberService.id}>{barberService.name}</MenuItem>
             ))}
-          </Dropdown>
-        </InputContainer>
-        <InputContainer>
-          <DatetimeInput label="Date and Time" name="datetime"></DatetimeInput>
-        </InputContainer>
-        <InputContainer>
-          <TextInput label="Client's name" name="clientName"></TextInput>
-        </InputContainer>
-        <InputContainer>
-          <TextInput label="Client's phone number" name="clientPhoneNumber"></TextInput>
-        </InputContainer>
-        <Button type="submit" variant="action">
+          </Select>
+        </InputLabel>
+        <InputLabel>
+          {/* <DatetimeInput label="Date and Time" name="datetime"></DatetimeInput> */}
+        </InputLabel>
+        <InputLabel>
+          <TextField label="Client's name" name="clientName"/>
+        </InputLabel>
+        <InputLabel>
+          <TextField label="Client's phone number" name="clientPhoneNumber"/>
+        </InputLabel>
+        <Button type="submit" variant="contained">
           New Appointment
         </Button>
       </Form>
     </Formik>
-  );
-            }
+  )}
+  export default NewAppointmentForm;
+
